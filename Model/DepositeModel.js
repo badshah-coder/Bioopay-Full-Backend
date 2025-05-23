@@ -21,13 +21,6 @@ const depositSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      validate: {
-        validator: function (v) {
-          return /^[0-9]+$/.test(v);
-        },
-        message: (props) =>
-          `${props.value} is ncot a valid transaction ID! Only numbers are allowed.`,
-      },
     },
     image: {
       type: String,
