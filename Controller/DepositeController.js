@@ -23,8 +23,8 @@ export const createDeposit = async (req, res) => {
     }
 
     // Validate base64 image
-    if (!image.match(/^data:image\/(png|jpeg|jpg);base64,/)) {
-      return res.status(400).json({ message: "Invalid image format" });
+    if (!image.match(/^data:image\/(png|jpeg|jpg|gif|webp|bmp);base64,/)) {
+      return res.status(400).json({ message: "Invalid image format. Supported formats: PNG, JPEG, JPG, GIF, WEBP, BMP" });
     }
 
     const plan = await PlaneModel.findById(planId);
